@@ -4,16 +4,40 @@
   box-sizing: border-box;
 }
 
+:root {
+  --card-color-primary: #F7DD43;
+  --card-title-border-color: #746615;
+  --card-bg-color: #1D1C19;
+  --bg: url(./assets/bg-yellow.svg);
+}
+
+body.blue {
+  --card-color-primary: #338AF3;
+  --card-title-border-color: #338AF3;
+  --card-bg-color: #202024;
+  --bg: url(./assets/bg-blue.svg);
+}
+
+body.green {
+  --card-color-primary: #047C3F;
+  --card-title-border-color: #047C3F;
+  --card-bg-color: #1A1F1B;
+  --bg: url(./assets/bg-green.svg);
+}
+
 ul {
   list-style: none;
 }
 
 body {
   background-color: #121214;
-  background-image: url("./assets/bg.svg");
-  background-position-x: center;
-  background-position-y: 55%;
+  background-image: var(--bg);
+  background-position: top center;
+  background-position-y: 10%;
   background-repeat: no-repeat;
+  background-size: cover;
+
+  /*background: #121214 var(--bg) no-repeat top center/cover; */
 }
 
 body * {
@@ -22,13 +46,32 @@ body * {
 
 #app {
   width: fit-content;
-  margin: 3.3125rem auto;
+  margin: auto;
+  padding-top: 3.25rem;
 }
 
 header {
-  margin-bottom: 3.9375rem;
+  margin-bottom: 40px;
   display: flex;
   justify-content: center;
+}
+
+#changeColor {
+  padding: 8px 16px;
+  margin-bottom: 10px;
+  animation: appear 1s forwards;
+  cursor: pointer;
+
+  background: transparent;
+  border-radius: 4px;
+
+  color: var(--card-color-primary);
+  border: 1px solid var(--card-title-border-color);
+  transition: .2s;
+}
+
+#changeColor:hover {
+  transform: translateY(-0.1rem);
 }
 
 #cards img {
@@ -38,15 +81,18 @@ header {
 
 #cards {
   display: flex;
+  max-width: 700px;
+  flex-wrap: wrap; 
   gap: 32px;
+  margin-bottom: 20px;
 }
 
 .card {
   padding: 32px 23px;
   text-align: center;
 
-  background-color: #1E1E1E;
-  border-bottom: 2px solid #F7DD43;
+  background-color: var(--card-bg-color);
+  border-bottom: 2px solid var(--card-color-primary);
   border-radius: 6px;
 }
 
@@ -57,14 +103,14 @@ header {
   align-items: center;
 
   padding: 8px 16px;
-  border: 1px solid #746615;
+  border: 1px solid var(--card-title-border-color);
   border-radius: 6px;
 
   width: fit-content;
   margin-inline: auto;
   margin-bottom: 3.3125rem;
 
-  color: #F7DD43;
+  color: var(--card-color-primary);
 }
 
 .card h2 span {
@@ -97,6 +143,35 @@ header {
   font-size: 36px;
   line-height: 125%;
   color: #E1E1E6;
+}
+
+.card ul li strong:hover,
+.card ul li img:hover {
+  transform: scale(1.1);
+}
+
+.card h2:hover {
+  transform: translateY(-0.125rem);
+}
+
+.card ul li strong,
+.card ul li img {
+  transition: transform .2s;
+}
+
+.card {
+  animation: appear 1s forwards;
+}
+
+
+@keyframes appear {
+  0% {
+    transform: translateY(-0.5rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 725px) {
