@@ -36,12 +36,23 @@ body {
   background-position-y: 10%;
   background-repeat: no-repeat;
   background-size: cover;
+  scrollbar-width: thin;
 
   /*background: #121214 var(--bg) no-repeat top center/cover; */
 }
 
 body * {
   font-family: 'Roboto', sans-serif;
+}
+
+body::-webkit-scrollbar {
+  background-color: var(--card-bg-color);
+  width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--card-color-primary);
+  border-radius: 10px;
 }
 
 #app {
@@ -67,11 +78,11 @@ header {
 
   color: var(--card-color-primary);
   border: 1px solid var(--card-title-border-color);
-  transition: .2s;
+  transition: .1s;
 }
 
 #changeColor:hover {
-  transform: translateY(-0.1rem);
+  background: var(--card-bg-color);
 }
 
 #cards img {

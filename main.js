@@ -1,8 +1,8 @@
+let change = 1;
+
 let body = document.getElementById("body");
 
 let backgroundColors = ["yellow", "blue", "green"];
-
-let change = 1;
 
 function changeBackground() {
 
