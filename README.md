@@ -18,7 +18,7 @@ de acordo com as datas.</p>
 ### Fetures
 <p>Desenvolvi 3 features para diferenciar o projeto, sendo elas: </p>
 
-- Mudar a cor do projeto
+- Salvar a cor do projeto com o localStorage
 - Voltar um card
 - Ir para o próximo card
 
