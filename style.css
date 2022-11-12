@@ -33,7 +33,7 @@ body {
   background-color: #121214;
   background-image: var(--bg);
   background-position: top center;
-  background-position-y: 10%;
+  background-position-y: 3%;
   background-repeat: no-repeat;
   background-size: cover;
   scrollbar-width: thin;
