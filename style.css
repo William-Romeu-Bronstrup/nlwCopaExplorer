@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+}
+
 :root {
   --card-color-primary: #F7DD43;
   --card-title-border-color: #746615;
@@ -23,10 +27,6 @@ body.green {
   --card-title-border-color: #047C3F;
   --card-bg-color: #1A1F1B;
   --bg: url(./assets/bg-green.svg);
-}
-
-ul {
-  list-style: none;
 }
 
 body {
@@ -58,7 +58,7 @@ body::-webkit-scrollbar-thumb {
 #app {
   width: fit-content;
   margin: auto;
-  padding-top: 3.25rem;
+  padding: 50px 15px 0 15px;
 }
 
 header {
@@ -67,10 +67,15 @@ header {
   justify-content: center;
 }
 
-#changeColor {
-  padding: 8px 16px;
+#buttons {
+  display: flex;
   margin-bottom: 10px;
-  animation: appear 1s forwards;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buttonCard {
+  padding: 8px 16px;
   cursor: pointer;
 
   background: transparent;
@@ -78,10 +83,9 @@ header {
 
   color: var(--card-color-primary);
   border: 1px solid var(--card-title-border-color);
-  transition: .1s;
 }
 
-#changeColor:hover {
+.buttonCard:hover {
   background: var(--card-bg-color);
 }
 
@@ -168,21 +172,6 @@ header {
 .card ul li strong,
 .card ul li img {
   transition: transform .2s;
-}
-
-.card {
-  animation: appear 1s forwards;
-}
-
-
-@keyframes appear {
-  0% {
-    transform: translateY(-0.5rem);
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 @media screen and (max-width: 725px) {

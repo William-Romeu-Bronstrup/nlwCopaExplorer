@@ -1,39 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+  <html lang="pt-br">
 
   <head>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta 
+      name="description"
+      content="Calendário dos jogos da copa do mundo no catar em 2022,
+      com horário, datas e imagem dos times."
+    >
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon" />
 
     <title>NLW Copa - Calendário</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css" />
     <script src="./main.js" defer></script>
-
   </head>
 
   <body class="yellow" id="body">
-    
     <div id="app">
 
       <header>
-        <img src="./assets/logo.svg" alt="NLW Copa Logo" />
+        <img src="./assets/logo.svg" alt="NLW Copa Logo" width="270" height="64" />
       </header>
 
-      <button id="changeColor" onclick="changeBackground()">
-        Mudar Cores
-      </button>
+      <div id="buttons">
+        <button class="buttonCard" onclick="changeBackground()">
+          Mudar Cores
+        </button>
 
+        <button class="buttonCard" onclick="previousCard()">
+          Anterior
+        </button>
+  
+        <button class="buttonCard" onclick="nextCard()">
+           Próximo
+        </button>
+      </div>
+      
       <main id="cards"></main>
 
     </div>
-
   </body>
 </html>
