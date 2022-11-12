@@ -1,32 +1,33 @@
 let change = 1;
+let renderizarUmaVez = 0;
 let body = document.getElementById("body");
 let backgroundColors = ["yellow", "blue", "green"];
 
-function changeBackground() {
+let localBgColor = parseInt(localStorage.getItem("bg")) || 0
 
-  switch (change) {
-  
-    case 1:
-      body.classList.remove(backgroundColors[0]);
-      body.classList.add(backgroundColors[1]);
+if (renderizarUmaVez === 0) {
 
-      change += 1;
-      break;
-
-    case 2:
-      body.classList.remove(backgroundColors[1]);
-      body.classList.add(backgroundColors[2]);
-
-      change += 1;
-      break;
-
-    default:
-      body.classList.remove(backgroundColors[2]);
-      body.classList.add(backgroundColors[0]);
-
-      change = 1;
+  for (let i = 0; i <= 2; i++) {
+    body.classList.remove(backgroundColors[i]);
   }
 
+  body.classList.add(backgroundColors[localBgColor])
+  renderizarUmaVez = 1;
+}
+
+function changeBackground() {
+
+  body.classList.remove(backgroundColors[localBgColor])
+
+  localBgColor += 1
+
+  if (localBgColor === 3) {
+    localBgColor = 0
+  }
+
+  body.classList.add(backgroundColors[localBgColor])
+  localStorage.setItem("bg", localBgColor);
+  
 }
 
 function createGame(player1, hour, player2) {
