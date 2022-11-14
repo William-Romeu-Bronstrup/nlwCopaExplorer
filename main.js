@@ -1,9 +1,23 @@
-let change = 1;
-let renderizarUmaVez = 0;
-let body = document.getElementById("body");
-let backgroundColors = ["yellow", "blue", "green"];
+const btn = document.querySelectorAll(".buttonCard")
+const image = document.getElementById("image")
+const mainCard = document.querySelector("#cards")
+const body = document.getElementById("body")
 
+let backgroundColors = ["yellow", "blue", "green"]
 let localBgColor = parseInt(localStorage.getItem("bg")) || 0
+let change = 1
+let renderizarUmaVez = 0
+
+let valor = false;
+
+let control2 = 0;
+let control = 0;
+
+if (mainCard.innerHTML.length === 0) {
+  btn.forEach((item) => {
+    item.style.display = "none"
+  })
+}
 
 if (renderizarUmaVez === 0) {
 
@@ -30,12 +44,57 @@ function changeBackground() {
   
 }
 
-function createGame(player1, hour, player2) {
+function createGame(
+  player1, hour, player2, player1Win, player2Win, player1Score, player2Score) {
   return `
     <li>
-      <img src="./assets/${player1}-icon.svg" alt="Bandeira de ${player1}" title="${player1}">
+      <aside>${player1Score || 0}</aside>
+      <div class="centerCrown">
+        ${player1Win ? `
+          <img
+            src="./assets/gameWin.svg" 
+            alt="crown"
+            title="win"
+            id="winOrLose"
+          />`
+          :
+          `<span style="height: 20px; width: 20px"></span>`
+        }
+
+        <img
+          src="./assets/${player1}-icon.svg"
+          alt="Bandeira ${player1}"
+          title="${player1}"
+          ${player1Win ? `
+            class="winColor"` : ""
+          }
+        >
+      </div>
+
       <strong>${hour}</strong>
-      <img src="./assets/${player2}-icon.svg" alt="Bandeira da ${player2}" title="${player2}">
+
+      <div class="centerCrown">
+        ${player2Win ? 
+          `<img
+            src="./assets/gameWin.svg" 
+            alt="crown"
+            title="win"
+            id="winOrLose"
+          />`
+          :
+          `<span style="height: 20px; width: 20px"></span>`
+        }
+
+        <img
+          src="./assets/${player2}-icon.svg"
+          alt="Bandeira ${player2}"
+          title="${player2}"
+          ${player2Win ? `
+            class="winColor"` : ""
+          }
+        >
+      </div>
+      <aside>${player2Score || 0}</aside>
     </li>
   `;
 }
@@ -57,7 +116,7 @@ function createCard(date, day, games) {
 let cards = [
   createCard(
   '20/11', 'Domingo', 
-    createGame("qatar", "13:00" , "ecuador")
+    createGame("qatar", "13:00" , "ecuador", false, false, 0, 0)
   ),
   createCard(
     '21/11', 'Segunda',
@@ -143,26 +202,88 @@ let cards = [
     createGame("serbia", "13:00" , "switzerland") +
     createGame("cameroon", "16:00" , "brazil")
   )
-];
+]
 
-let control = 0;
-let data = ["20/11", "21/11", "22/11", "23/11", "24/11", "25/11", "26/11", "27/11", "28/11",
-    "29/11", "30/11", "01/12", "02/12"];
+let data = [
+  "20/11", "21/11", "22/11", "23/11", "24/11", "25/11", "26/11", "27/11", "28/11",
+  "29/11", "30/11", "01/12", "02/12"
+]
 
-const result = cards.filter(e => e.includes(data[control]))
-document.querySelector("#cards").innerHTML = result.toString().replaceAll(",", " ");
+let data2 = [
+  "03/12", "04/12", "05/12", "06/12", "09/12", "10/12", "13/12", "14/12", "17/12", 
+  "18/12"
+]
+
+let cards2 = [
+  createCard(
+    '03/12', 'Sábado',
+    createGame("", "12:00" , "") +
+    createGame("", "16:00" , "")
+  ),
+  createCard(
+    '04/12', 'Domingo',
+    createGame("", "12:00" , "") +
+    createGame("", "16:00" , "")
+  ),
+  createCard(
+    '05/12', 'Segunda',
+    createGame("", "12:00" , "") +
+    createGame("", "16:00" , "")
+  ),
+  createCard(
+    '06/12', 'Terça',
+    createGame("", "12:00" , "") +
+    createGame("", "16:00" , "")
+  )
+  ,
+  createCard(
+    '09/12', 'Sexta',
+    createGame("", "12:00" , "") +
+    createGame("", "16:00" , "")
+  ),
+  createCard(
+    '10/12', 'Sábado',
+    createGame("", "12:00" , "") +
+    createGame("", "16:00" , "")
+  ),
+  createCard(
+    '13/12', 'Terça',
+    createGame("", "16:00" , "")
+  ),
+  createCard(
+    '14/12', 'Quarta',
+    createGame("", "16:00" , "")
+  ),
+  createCard(
+    '17/12', 'Sábado',
+    createGame("", "12:00" , "")
+  ),
+  createCard(
+    '18/12', 'Domingo',
+    createGame("", "12:00" , "")
+  )
+]
 
 function previousCard() {
 
-  if (control === 0) {
-    control = 0
-    return;
+  if (control === 0 && control2 === 0) {
+    return
   }
 
-  control -= 1;
+  if (control > 0 && !valor) {
+    control -= 1;
 
-  const result = cards.filter(e => e.includes(data[control]))
-  document.querySelector("#cards").innerHTML = result.toString().replaceAll(",", " ");
+    const result = cards.filter(e => e.includes(data[control]))
+    mainCard.innerHTML = result.toString().replaceAll(",", " ");
+  }
+
+  if (valor && control2 > 0) {
+
+    control2 -= 1;
+
+    const result = cards2.filter(e => e.includes(data2[control2]))
+    mainCard.innerHTML = result.toString().replaceAll(",", " ");
+  }
 
 }
 
@@ -172,9 +293,47 @@ function nextCard() {
     control = -1
   }
 
-  control += 1;
+  if (control2 === data2.length - 1) {
+    control2 = -1;
+  }
+
+  if (valor) {
+
+    control2 += 1;
+
+    const result = cards2.filter(e => e.includes(data2[control2]))
+    mainCard.innerHTML = result.toString().replaceAll(",", " ");
+  } else {
+
+    control += 1;
+
+    const result = cards.filter(e => e.includes(data[control]))
+    mainCard.innerHTML = result.toString().replaceAll(",", " ");
+  }
+}
+
+function faseDeGrupos() {
+  valor = false;
+
+  image.style.display = "none"
+
+  btn.forEach((item) => {
+    item.style.display = "block"
+  })
 
   const result = cards.filter(e => e.includes(data[control]))
-  document.querySelector("#cards").innerHTML = result.toString().replaceAll(",", " ");
+  mainCard.innerHTML = result.toString().replaceAll(",", " ");
+}
 
+function JogosFinais() {
+  valor = true;
+
+  image.style.display = "none"
+
+  btn.forEach((item) => {
+    item.style.display = "block"
+  })
+
+  const result = cards2.filter(e => e.includes(data2[control2]))
+  mainCard.innerHTML = result.toString().replaceAll(",", " ");
 }

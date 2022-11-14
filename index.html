@@ -19,9 +19,10 @@
 
     <title>NLW Copa - Calendário</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="style.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+    
   </head>
 
   <body class="yellow" id="body">
@@ -30,12 +31,22 @@
       <header>
         <img src="./assets/logo.svg" alt="NLW Copa Logo" width="270" height="64" />
       </header>
+      
+      <section class="centerButton">
+        <button onclick="faseDeGrupos()">Fase de grupos</button>
 
-      <div id="buttons">
-        <button class="buttonCard" onclick="changeBackground()">
-          Mudar Cores
+        <button disabled id="buttonDisabled" onclick="JogosFinais()">Jogos finais</button>
+
+        <button onclick="changeBackground()">
+          Mudar cores
         </button>
+      </section>
 
+      <div id="image">
+         <img src="./assets/brazil-icon.svg" alt="Imagem de comemoração da copa" title="imagem da copa" width="250" height="250">
+      </div>
+     
+      <div id="buttons">
         <button class="buttonCard" onclick="previousCard()">
           Anterior
         </button>
