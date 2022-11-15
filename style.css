@@ -29,7 +29,7 @@ body.green {
 body {
   min-height: 100vh;
   scrollbar-width: thin;
-  background-image: linear-gradient(to bottom, var(--card-bg-color), 80%, var(--card-color-primary));
+  background-image: linear-gradient(to bottom, var(--card-bg-color), 50%, var(--card-color-primary));
 }
 
 body * {
@@ -88,7 +88,7 @@ header {
   justify-content: space-between;
   width: 100%;
 
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   gap: 10px;
 }
 
