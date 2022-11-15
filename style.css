@@ -29,7 +29,7 @@ body.green {
 body {
   min-height: 100vh;
   scrollbar-width: thin;
-  background-image: linear-gradient(to bottom, var(--card-bg-color), 50%, var(--card-color-primary));
+  background-image: linear-gradient(to bottom, var(--card-bg-color), 60%, var(--card-color-primary));
 }
 
 body * {
