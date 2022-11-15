@@ -3,7 +3,8 @@
 <p align="center">Projeto desenvolvido pelo Evento da Rocketseat 🚀 sobre a Copa do Mundo. </p>
 
 <h1 align="center">
-  <img alt="Imagem do projeto que mostra os jogos de acordo com as datas" title="Imagem do projeto" src="./nlwCopa.png" width="900" height="500" />
+  <img alt="Imagem do projeto que mostra a tela inicial" title="Imagem do projeto" src="./nlwCopa1.png" width="700" height="500" />
+  <img alt="Imagem do projeto que mostra os jogos de acordo com as datas e demais funcionalidades" title="Imagem do projeto" src="./nlwCopa2.png" width="700" height="500" />
 </h1>
 
 <p>Este projeto tem o objetivo de mostrar os jogos da copa do mundo
