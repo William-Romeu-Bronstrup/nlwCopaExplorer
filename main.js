@@ -5,13 +5,12 @@ const body = document.getElementById("body")
 
 let backgroundColors = ["yellow", "blue", "green"]
 let localBgColor = parseInt(localStorage.getItem("bg")) || 0
-let change = 1
-let renderizarUmaVez = 0
-
 let valor = false;
 
-let control2 = 0;
-let control = 0;
+let change = 1
+let renderizarUmaVez = 0
+let controlEleminatorios = 0;
+let controlGrupos = 0;
 
 if (mainCard.innerHTML.length === 0) {
   btn.forEach((item) => {
@@ -113,7 +112,7 @@ function createCard(date, day, games) {
   `;
 }
 
-let cards = [
+let cardsFaseDeGrupos = [
   createCard(
   '20/11', 'Domingo', 
     createGame("qatar", "13:00" , "ecuador", false, false, 0, 0)
@@ -204,17 +203,12 @@ let cards = [
   )
 ]
 
-let data = [
+let faseDeGruposDatas = [
   "20/11", "21/11", "22/11", "23/11", "24/11", "25/11", "26/11", "27/11", "28/11",
   "29/11", "30/11", "01/12", "02/12"
 ]
 
-let data2 = [
-  "03/12", "04/12", "05/12", "06/12", "09/12", "10/12", "13/12", "14/12", "17/12", 
-  "18/12"
-]
-
-let cards2 = [
+let cardsJogosEleminatorios = [
   createCard(
     '03/12', 'Sábado',
     createGame("", "12:00" , "") +
@@ -264,24 +258,33 @@ let cards2 = [
   )
 ]
 
+let jogosEleminatoriosDatas = [
+  "03/12", "04/12", "05/12", "06/12", "09/12", "10/12", "13/12", "14/12", "17/12", 
+  "18/12"
+]
+
 function previousCard() {
 
-  if (control === 0 && control2 === 0) {
+  if (controlGrupos === 0 && controlEleminatorios === 0) {
     return
   }
 
-  if (control > 0 && !valor) {
-    control -= 1;
+  if (controlGrupos > 0 && !valor) {
+    controlGrupos -= 1;
 
-    const result = cards.filter(e => e.includes(data[control]))
+    const result = cardsFaseDeGrupos.filter(e =>
+      e.includes(faseDeGruposDatas[controlGrupos]))
+
     mainCard.innerHTML = result.toString().replaceAll(",", " ");
   }
 
-  if (valor && control2 > 0) {
+  if (valor && controlEleminatorios > 0) {
 
-    control2 -= 1;
+    controlEleminatorios -= 1;
 
-    const result = cards2.filter(e => e.includes(data2[control2]))
+    const result = cardsJogosEleminatorios.filter(e => 
+      e.includes(jogosEleminatoriosDatas[controlEleminatorios]))
+
     mainCard.innerHTML = result.toString().replaceAll(",", " ");
   }
 
@@ -289,25 +292,29 @@ function previousCard() {
 
 function nextCard() {
 
-  if (control === data.length - 1 ) {
-    control = -1
+  if (controlGrupos === faseDeGruposDatas.length - 1 ) {
+    controlGrupos = -1
   }
 
-  if (control2 === data2.length - 1) {
-    control2 = -1;
+  if (controlEleminatorios === jogosEleminatoriosDatas.length - 1) {
+    controlEleminatorios = -1;
   }
 
   if (valor) {
 
-    control2 += 1;
+    controlEleminatorios += 1;
 
-    const result = cards2.filter(e => e.includes(data2[control2]))
+    const result = cardsJogosEleminatorios.filter(e => 
+      e.includes(jogosEleminatoriosDatas[controlEleminatorios]))
+
     mainCard.innerHTML = result.toString().replaceAll(",", " ");
   } else {
 
-    control += 1;
+    controlGrupos += 1;
 
-    const result = cards.filter(e => e.includes(data[control]))
+    const result = cardsFaseDeGrupos.filter(e =>
+      e.includes(faseDeGruposDatas[controlGrupos]))
+
     mainCard.innerHTML = result.toString().replaceAll(",", " ");
   }
 }
@@ -321,7 +328,9 @@ function faseDeGrupos() {
     item.style.display = "block"
   })
 
-  const result = cards.filter(e => e.includes(data[control]))
+  const result = cardsFaseDeGrupos.filter(e => 
+    e.includes(faseDeGruposDatas[controlGrupos]))
+
   mainCard.innerHTML = result.toString().replaceAll(",", " ");
 }
 
@@ -334,6 +343,8 @@ function JogosFinais() {
     item.style.display = "block"
   })
 
-  const result = cards2.filter(e => e.includes(data2[control2]))
+  const result = cardsJogosEleminatorios.filter(e =>
+    e.includes(jogosEleminatoriosDatas[controlEleminatorios]))
+
   mainCard.innerHTML = result.toString().replaceAll(",", " ");
 }
