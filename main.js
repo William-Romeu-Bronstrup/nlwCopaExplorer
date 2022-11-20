@@ -115,7 +115,7 @@ function createCard(date, day, games) {
 let cardsFaseDeGrupos = [
   createCard(
   '20/11', 'Domingo', 
-    createGame("qatar", "13:00" , "ecuador", false, false, 0, 0)
+    createGame("qatar", "13:00" , "ecuador", false, true, 0, 2)
   ),
   createCard(
     '21/11', 'Segunda',
