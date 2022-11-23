@@ -132,9 +132,9 @@ let cardsFaseDeGrupos = [
   ),
   createCard(
     '23/11', 'Quarta',
-    createGame("morocco", "07:00" , "croatia") +
-    createGame("germany", "10:00" , "japan") +
-    createGame("spain", "13:00" , "costaRica") +
+    createGame("morocco", "07:00" , "croatia", false, false) +
+    createGame("germany", "10:00" , "japan", false, true, 1, 2) +
+    createGame("spain", "13:00" , "costaRica", true, false, 7, 0) +
     createGame("belgium", "16:00" , "canada")
   ),
   createCard(
