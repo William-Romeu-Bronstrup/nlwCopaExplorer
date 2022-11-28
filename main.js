@@ -153,18 +153,18 @@ let cardsFaseDeGrupos = [
   ),
   createCard(
     '26/11', 'Sábado', 
-    createGame("tunisia", "07:00" , "australia") +
-    createGame("poland", "10:00" , "saudiArabia") +
-    createGame("france", "13:00" , "denmark") +
-    createGame("argentina", "16:00" , "mexico")
+    createGame("tunisia", "07:00" , "australia", false, true, 0, 1) +
+    createGame("poland", "10:00" , "saudiArabia", true, false, 2, 0) +
+    createGame("france", "13:00" , "denmark", true, false, 2, 1) +
+    createGame("argentina", "16:00" , "mexico", true, false, 2, 0)
   )
   ,
   createCard(
     '27/11', 'Domingo', 
-    createGame("japan", "07:00" , "costaRica") +
-    createGame("belgium", "10:00" , "morocco") +
-    createGame("croatia", "13:00" , "canada") +
-    createGame("spain", "16:00" , "germany")
+    createGame("japan", "07:00" , "costaRica", false, true, 0, 1) +
+    createGame("belgium", "10:00" , "morocco", false, true, 0, 2) +
+    createGame("croatia", "13:00" , "canada", true, false, 4, 1) +
+    createGame("spain", "16:00" , "germany", false, false, 1, 1)
   ),
   createCard(
     '28/11', 'Segunda', 
