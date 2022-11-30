@@ -171,34 +171,34 @@ let cardsFaseDeGrupos = [
     createGame("cameroon", "07:00" , "serbia", false, false, 3, 3) +
     createGame("southKorea", "10:00" , "ghana",false, true, 2, 3) +
     createGame("brazil", "13:00" , "switzerland", true, false, 1, 0) +
-    createGame("portugal", "16:00" , "uruguay")
+    createGame("portugal", "16:00" , "uruguay", true, false, 2, 0)
   ),
   createCard(
     '29/11', 'Terça', 
-    createGame("ecuador", "07:00" , "senegal") +
-    createGame("netherlands", "10:00" , "qatar") +
-    createGame("iran", "13:00" , "unitedStates") +
-    createGame("wales", "16:00" , "england")
+    createGame("ecuador", "12:00" , "senegal", false, true, 1, 2) +
+    createGame("netherlands", "12:00" , "qatar", true, false, 2, 0) +
+    createGame("iran", "16:00" , "unitedStates", false, true, 0, 1) +
+    createGame("wales", "16:00" , "england", false, true, 0, 3)
   ),
   createCard(
     '30/11', 'Quarta', 
-    createGame("tunisia", "07:00" , "france") +
-    createGame("australia", "10:00" , "denmark") +
-    createGame("poland", "13:00" , "argentina") +
+    createGame("tunisia", "12:00" , "france") +
+    createGame("australia", "12:00" , "denmark") +
+    createGame("poland", "16:00" , "argentina") +
     createGame("saudiArabia", "16:00" , "mexico")
   ),
   createCard(
     '01/12', 'Quinta',
-    createGame("croatia", "07:00" , "belgium") +
-    createGame("canada", "10:00" , "morocco") +
-    createGame("japan", "13:00" , "spain") +
+    createGame("croatia", "12:00" , "belgium") +
+    createGame("canada", "12:00" , "morocco") +
+    createGame("japan", "16:00" , "spain") +
     createGame("costaRica", "16:00" , "germany")
   ),
   createCard(
     '02/12', 'Sexta',
-    createGame("southKorea", "07:00" , "portugal") +
-    createGame("ghana", "10:00" , "uruguay") +
-    createGame("serbia", "13:00" , "switzerland") +
+    createGame("southKorea", "12:00" , "portugal") +
+    createGame("ghana", "12:00" , "uruguay") +
+    createGame("serbia", "16:00" , "switzerland") +
     createGame("cameroon", "16:00" , "brazil")
   )
 ]
@@ -211,13 +211,13 @@ let faseDeGruposDatas = [
 let cardsJogosEleminatorios = [
   createCard(
     '03/12', 'Sábado',
-    createGame("", "12:00" , "") +
+    createGame("netherlands", "12:00" , "unitedStates") +
     createGame("", "16:00" , "")
   ),
   createCard(
     '04/12', 'Domingo',
     createGame("", "12:00" , "") +
-    createGame("", "16:00" , "")
+    createGame("england", "16:00" , "senegal")
   ),
   createCard(
     '05/12', 'Segunda',
