@@ -228,10 +228,9 @@ let cardsJogosEleminatorios = [
     '06/12', 'Terça',
     createGame("morocco", "12:00" , "spain") +
     createGame("portugal", "16:00" , "switzerland")
-  )
-]
-
-  /*createCard(
+  ),
+  /*
+  createCard(
     '09/12', 'Sexta',
     createGame("", "12:00" , "") +
     createGame("", "16:00" , "")
@@ -257,6 +256,7 @@ let cardsJogosEleminatorios = [
     '18/12', 'Domingo',
     createGame("", "12:00" , "")
   )*/
+]
 
 let jogosEleminatoriosDatas = [
   "03/12", "04/12", "05/12", "06/12", "09/12", "10/12", "13/12", "14/12", "17/12", 
@@ -307,7 +307,10 @@ function nextCard() {
     const result = cardsJogosEleminatorios.filter(e => 
       e.includes(jogosEleminatoriosDatas[controlEleminatorios]))
 
-    mainCard.innerHTML = result.toString().replaceAll(",", " ");
+      if (result != "") {
+        mainCard.innerHTML = result.toString().replaceAll(",", " ");
+      }
+    
   } else {
 
     controlGrupos += 1;
