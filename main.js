@@ -230,7 +230,7 @@ let cardsJogosEleminatorios = [
     createGame("portugal", "16:00" , "switzerland")
   )
   ,
-  createCard(
+  /*createCard(
     '09/12', 'Sexta',
     createGame("", "12:00" , "") +
     createGame("", "16:00" , "")
@@ -255,7 +255,7 @@ let cardsJogosEleminatorios = [
   createCard(
     '18/12', 'Domingo',
     createGame("", "12:00" , "")
-  )
+  )*/
 ]
 
 let jogosEleminatoriosDatas = [
