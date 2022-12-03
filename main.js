@@ -211,23 +211,23 @@ let faseDeGruposDatas = [
 let cardsJogosEleminatorios = [
   createCard(
     '03/12', 'Sábado',
-    createGame("netherlands", "12:00" , "unitedStates") +
+    createGame("netherlands", "12:00", "unitedStates") +
     createGame("argentina", "16:00" , "australia")
   ),
   createCard(
     '04/12', 'Domingo',
-    createGame("france", "12:00" , "poland") +
+    createGame("france", "12:00", "poland") +
     createGame("england", "16:00" , "senegal")
   ),
   createCard(
     '05/12', 'Segunda',
-    createGame("", "12:00" , "") +
-    createGame("", "16:00" , "")
+    createGame("japan", "12:00", "croatia") +
+    createGame("brazil", "16:00" , "southKorea")
   ),
   createCard(
     '06/12', 'Terça',
-    createGame("", "12:00" , "") +
-    createGame("", "16:00" , "")
+    createGame("morocco", "12:00" , "spain") +
+    createGame("portugal", "16:00" , "switzerland")
   )
   ,
   createCard(
