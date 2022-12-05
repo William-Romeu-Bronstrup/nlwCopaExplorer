@@ -216,13 +216,13 @@ let cardsJogosEleminatorios = [
   ),
   createCard(
     '04/12', 'Domingo',
-    createGame("france", "12:00", "poland") +
-    createGame("england", "16:00" , "senegal")
+    createGame("france", "12:00", "poland", true, false, 3, 1) +
+    createGame("england", "16:00" , "senegal", true, false, 3, 0)
   ),
   createCard(
     '05/12', 'Segunda',
-    createGame("japan", "12:00", "croatia") +
-    createGame("brazil", "16:00" , "southKorea")
+    createGame("japan", "12:00", "croatia", false, false, 1, 1) +
+    createGame("brazil", "16:00" , "southKorea", true, false, 4, 1)
   ),
   createCard(
     '06/12', 'Terça',
@@ -302,10 +302,10 @@ function nextCard() {
 
   if (valor) {
 
-    controlEleminatorios += 1;
-
     const result = cardsJogosEleminatorios.filter(e => 
-      e.includes(jogosEleminatoriosDatas[controlEleminatorios]))
+        e.includes(jogosEleminatoriosDatas[controlEleminatorios]))
+
+    controlEleminatorios += 1;
 
     if (result != "") {
       mainCard.innerHTML = result.toString().replaceAll(",", " ");
