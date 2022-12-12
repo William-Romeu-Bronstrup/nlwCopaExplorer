@@ -226,28 +226,28 @@ let cardsJogosEleminatorios = [
   ),
   createCard(
     '06/12', 'Terça',
-    createGame("morocco", "12:00" , "spain") +
-    createGame("portugal", "16:00" , "switzerland")
+    createGame("morocco", "12:00" , "spain",false, false) +
+    createGame("portugal", "16:00" , "switzerland", true, false, 6, 1)
   ),
-  /*
   createCard(
     '09/12', 'Sexta',
-    createGame("", "12:00" , "") +
-    createGame("netherlands", "16:00" , "argentina")
+    createGame("brazil", "12:00" , "croatia", false, false, 1, 1) +
+    createGame("netherlands", "16:00" , "argentina", false, false, 2, 2)
   ),
   createCard(
     '10/12', 'Sábado',
-    createGame("", "12:00" , "") +
-    createGame("", "16:00" , "")
+    createGame("morocco", "12:00" , "portugal", true, false, 1, 0) +
+    createGame("england", "16:00" , "france", false, true, 1, 2)
   ),
   createCard(
     '13/12', 'Terça',
-    createGame("", "16:00" , "")
+    createGame("argentina", "16:00" , "croatia")
   ),
   createCard(
     '14/12', 'Quarta',
-    createGame("", "16:00" , "")
+    createGame("france", "16:00" , "morocco")
   ),
+  /*
   createCard(
     '17/12', 'Sábado',
     createGame("", "12:00" , "")
