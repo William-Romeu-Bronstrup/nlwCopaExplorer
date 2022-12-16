@@ -241,21 +241,20 @@ let cardsJogosEleminatorios = [
   ),
   createCard(
     '13/12', 'Terça',
-    createGame("argentina", "16:00" , "croatia")
+    createGame("argentina", "16:00" , "croatia", true, false, 3, 0)
   ),
   createCard(
     '14/12', 'Quarta',
-    createGame("france", "16:00" , "morocco")
+    createGame("france", "16:00" , "morocco", true, false, 2, 0)
   ),
-  /*
   createCard(
     '17/12', 'Sábado',
-    createGame("", "12:00" , "")
+    createGame("croatia", "12:00" , "morocco")
   ),
   createCard(
     '18/12', 'Domingo',
-    createGame("", "12:00" , "")
-  )*/
+    createGame("argentina", "12:00" , "france")
+  )
 ]
 
 let jogosEleminatoriosDatas = [
