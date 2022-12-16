@@ -295,7 +295,7 @@ function nextCard() {
     controlGrupos = -1
   }
 
-  if (controlEleminatorios === jogosEleminatoriosDatas.length - 1) {
+  if (controlEleminatorios === jogosEleminatoriosDatas.length) {
     controlEleminatorios = -1;
   }
 
