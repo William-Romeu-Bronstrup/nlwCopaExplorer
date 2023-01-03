@@ -221,18 +221,18 @@ let cardsJogosEleminatorios = [
   ),
   createCard(
     '05/12', 'Segunda',
-    createGame("japan", "12:00", "croatia", false, false, 1, 1) +
+    createGame("japan", "12:00", "croatia", false, true, "1 (1)", "1 (3)") +
     createGame("brazil", "16:00" , "southKorea", true, false, 4, 1)
   ),
   createCard(
     '06/12', 'Terça',
-    createGame("morocco", "12:00" , "spain",false, false) +
+    createGame("morocco", "12:00" , "spain",true, false, "0 (3)", "0 (0)") +
     createGame("portugal", "16:00" , "switzerland", true, false, 6, 1)
   ),
   createCard(
     '09/12', 'Sexta',
-    createGame("brazil", "12:00" , "croatia", false, false, 1, 1) +
-    createGame("netherlands", "16:00" , "argentina", false, false, 2, 2)
+    createGame("brazil", "12:00" , "croatia", false, true, "1 (2)", "1 (4)") +
+    createGame("netherlands", "16:00" , "argentina", false, true, "2 (3)", "2 (4)")
   ),
   createCard(
     '10/12', 'Sábado',
@@ -253,7 +253,7 @@ let cardsJogosEleminatorios = [
   ),
   createCard(
     '18/12', 'Domingo',
-    createGame("argentina", "12:00" , "france", false, false, 3, 3)
+    createGame("argentina", "12:00" , "france", true, false, "3 (4)", "3 (2)")
   )
 ]
 
@@ -269,6 +269,7 @@ function previousCard() {
   }
 
   if (controlGrupos > 0 && !valor) {
+
     controlGrupos -= 1;
 
     const result = cardsFaseDeGrupos.filter(e =>
@@ -291,20 +292,20 @@ function previousCard() {
 
 function nextCard() {
 
-  if (controlGrupos === faseDeGruposDatas.length - 1 ) {
+  if (controlGrupos === faseDeGruposDatas.length - 1) {
     controlGrupos = -1
   }
 
-  if (controlEleminatorios === jogosEleminatoriosDatas.length) {
+  if (controlEleminatorios === jogosEleminatoriosDatas.length - 1) {
     controlEleminatorios = -1;
   }
 
   if (valor) {
 
+    controlEleminatorios += 1;
+
     const result = cardsJogosEleminatorios.filter(e => 
         e.includes(jogosEleminatoriosDatas[controlEleminatorios]))
-
-    controlEleminatorios += 1;
 
     mainCard.innerHTML = result.toString().replaceAll(",", " ");
     
