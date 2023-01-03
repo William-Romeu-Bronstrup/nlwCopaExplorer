@@ -249,11 +249,11 @@ let cardsJogosEleminatorios = [
   ),
   createCard(
     '17/12', 'Sábado',
-    createGame("croatia", "12:00" , "morocco")
+    createGame("croatia", "12:00" , "morocco", true, false, 2, 1)
   ),
   createCard(
     '18/12', 'Domingo',
-    createGame("argentina", "12:00" , "france")
+    createGame("argentina", "12:00" , "france", false, false, 3, 3)
   )
 ]
 
@@ -306,9 +306,7 @@ function nextCard() {
 
     controlEleminatorios += 1;
 
-    if (result != "") {
-      mainCard.innerHTML = result.toString().replaceAll(",", " ");
-    }
+    mainCard.innerHTML = result.toString().replaceAll(",", " ");
     
   } else {
 
